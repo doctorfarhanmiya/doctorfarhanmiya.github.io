@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. [Your Name] - Health Counseling & Telehealth Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #003d82;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #d32f2f;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #003d82 0%, #0056b3 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background-color: #d32f2f;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #b71c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(211, 47, 47, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: #003d82;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #003d82;
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 3px solid #d32f2f;
+            padding-bottom: 1rem;
+            display: inline-block;
+            width: 100%;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: #003d82;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #0056b3, #003d82);
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #d32f2f;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card h3 {
+            color: #003d82;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Portfolio/Gallery Section */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            background: linear-gradient(135deg, #0056b3, #003d82);
+            height: 200px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            padding: 1rem;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: #f0f4f8;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #d32f2f;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #003d82;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h3 {
+            color: #003d82;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item strong {
+            color: #d32f2f;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #003d82;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #d32f2f;
+            box-shadow: 0 0 5px rgba(211, 47, 47, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group button {
+            width: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #003d82;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #d32f2f;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Dr. [Your Name]</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Welcome to Your Health & Wellness Journey</h1>
+        <p>Professional health counseling and telehealth services tailored to your needs</p>
+        <div class="cta-buttons">
+            <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Book Consultation</button>
+            <button class="btn btn-secondary" onclick="alert('Learn more about our telehealth services');">Learn More</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Dr. [Your Name]</h3>
+                <p>
+                    Welcome! I am a dedicated healthcare professional with [X] years of experience in health counseling and patient care. 
+                    My mission is to provide compassionate, evidence-based health guidance to help you achieve your wellness goals.
+                </p>
+                <p>
+                    With a focus on preventative care and holistic health, I offer personalized counseling sessions designed to address 
+                    your unique health concerns and lifestyle goals. Whether you prefer in-person or telehealth consultations, I'm here to support your journey to better health.
+                </p>
+                <p>
+                    <strong>Specializations:</strong> Mental health counseling, lifestyle modification, chronic disease management, stress management, and wellness coaching.
+                </p>
+            </div>
+            <div class="about-image">📋 Dr. Profile</div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title">My Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>🎯 Health Counseling</h3>
+                <p>
+                    One-on-one counseling sessions focused on mental health, stress management, and personal wellness. 
+                    I provide evidence-based strategies to help you overcome challenges and achieve your health goals.
+                </p>
+                <button class="btn btn-primary">Learn More</button>
+            </div>
+            <div class="service-card">
+                <h3>💻 Telehealth Consultations</h3>
+                <p>
+                    Secure, convenient online consultations from the comfort of your home. Perfect for busy schedules 
+                    and those seeking accessible healthcare options.
+                </p>
+                <button class="btn btn-primary">Learn More</button>
+            </div>
+            <div class="service-card">
+                <h3>🏥 In-Person Sessions</h3>
+                <p>
+                    Traditional face-to-face consultations at our clinic. Personalized care with thorough assessments 
+                    and comprehensive treatment plans.
+                </p>
+                <button class="btn btn-primary">Learn More</button>
+            </div>
+            <div class="service-card">
+                <h3>🧘 Wellness Coaching</h3>
+                <p>
+                    Lifestyle counseling including nutrition guidance, exercise planning, stress reduction techniques, 
+                    and long-term wellness strategies.
+                </p>
+                <button class="btn btn-primary">Learn More</button>
+            </div>
+            <div class="service-card">
+                <h3>📊 Health Assessment</h3>
+                <p>
+                    Comprehensive health evaluations and personalized wellness plans. We identify risk factors 
+                    and create actionable strategies for optimal health.
+                </p>
+                <button class="btn btn-primary">Learn More</button>
+            </div>
+            <div class="service-card">
+                <h3>👨‍👩‍👧‍👦 Family Counseling</h3>
+                <p>
+                    Group and family sessions to improve relationships, communication, and overall family wellness. 
+                    Strengthen bonds and support each other's health journey.
+                </p>
+                <button class="btn btn-primary">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio/Gallery Section -->
+    <section id="portfolio">
+        <h2 class="section-title">Portfolio & Resources</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: #555;">
+            Explore our case studies, client success stories, and educational resources.
+        </p>
+        <div class="gallery">
+            <div class="gallery-item">Success Story 1</div>
+            <div class="gallery-item">Case Study 2</div>
+            <div class="gallery-item">Wellness Guide</div>
+            <div class="gallery-item">Patient Testimonial</div>
+            <div class="gallery-item">Health Resource</div>
+            <div class="gallery-item">Success Metric</div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2 class="section-title">What Clients Say</h2>
+        <div class="testimonials">
+            <div class="testimonial-card">
+                <p>
+                    "Dr. [Name] has been instrumental in helping me manage my stress and improve my overall health. 
+                    Her personalized approach and caring nature make all the difference."
+                </p>
+                <div class="testimonial-author">— Client Name, Health Goal</div>
+            </div>
+            <div class="testimonial-card">
+                <p>
+                    "The telehealth consultations are so convenient! I received professional, compassionate care 
+                    without the hassle of traveling. Highly recommended!"
+                </p>
+                <div class="testimonial-author">— Another Client, Wellness Journey</div>
+            </div>
+            <div class="testimonial-card">
+                <p>
+                    "I've never felt more supported in my health journey. Dr. [Name] listens, understands, 
+                    and provides actionable advice that actually works."
+                </p>
+                <div class="testimonial-author">— Satisfied Client, Health Transformation</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <strong>📧 Email:</strong><br>
+                    your.email@example.com
+                </div>
+                <div class="contact-item">
+                    <strong>📞 Phone:</strong><br>
+                    +1 (123) 456-7890
+                </div>
+                <div class="contact-item">
+                    <strong>📍 Office Address:</strong><br>
+                    123 Health Street<br>
+                    Wellness City, ST 12345<br>
+                    USA
+                </div>
+                <div class="contact-item">
+                    <strong>⏰ Office Hours:</strong><br>
+                    Monday - Friday: 9:00 AM - 6:00 PM<br>
+                    Saturday: 10:00 AM - 2:00 PM<br>
+                    Sunday: Closed
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                <h3>Send a Message</h3>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="service">Interested Service</label>
+                    <select id="service" name="service" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px;">
+                        <option>Health Counseling</option>
+                        <option>Telehealth Consultation</option>
+                        <option>In-Person Session</option>
+                        <option>Wellness Coaching</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Dr. [Your Name] - Health Counseling & Telehealth Services. All rights reserved.</p>
+        <p>Professional, Confidential, Compassionate Care</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            alert(`Thank you, ${name}! Your message has been received. We will contact you shortly.`);
+            event.target.reset();
+        }
+    </script>
+
+</body>
+</html>
